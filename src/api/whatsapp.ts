@@ -8,6 +8,7 @@ import { Id } from './model/id';
 declare module WAPI {
   const waitNewMessages: (rmCallback: boolean, callback: Function) => void;
   const sendMessage: (to: string, content: string) => void;
+  const sendMessageToID: (to: string, content: string) => void;
   const sendSeen: (to: string) => void;
   const getAllContacts: () => Contact[];
   const getAllChats: () => Chat[];
@@ -43,6 +44,15 @@ export class Whatsapp {
       ({ to, content }) => {
         WAPI.sendSeen(to);
         WAPI.sendMessage(to, content);
+      },
+      { to, content }
+    );
+  }
+
+  public async sendMsg(to: string, content: string) {
+    return await this.page.evaluate(
+      ({ to, content }) => {
+        WAPI.sendMessageToID(to, content)
       },
       { to, content }
     );
