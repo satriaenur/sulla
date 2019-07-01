@@ -41,9 +41,12 @@ var __importStar = (this && this.__importStar) || function (mod) {
     result["default"] = mod;
     return result;
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 var path = __importStar(require("path"));
-var puppeteer = __importStar(require("puppeteer"));
+var puppeteer_1 = __importDefault(require("puppeteer"));
 var puppeteer_config_1 = require("../config/puppeteer.config");
 function initWhatsapp() {
     return __awaiter(this, void 0, void 0, function () {
@@ -93,7 +96,7 @@ function initBrowser() {
         var browser;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4, puppeteer.launch({
+                case 0: return [4, puppeteer_1.default.launch({
                         headless: true,
                         devtools: false,
                         userDataDir: path.join(process.cwd(), 'session'),
