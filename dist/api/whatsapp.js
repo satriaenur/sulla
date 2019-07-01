@@ -103,7 +103,9 @@ var Whatsapp = (function () {
                 switch (_a.label) {
                     case 0:
                         if (!withNewMessageOnly) return [3, 2];
-                        return [4, this.page.evaluate(function () { return WAPI.getAllChatsWithNewMsg(); })];
+                        return [4, this.page.evaluate(function () {
+                                return WAPI.getAllChatsWithNewMsg();
+                            })];
                     case 1: return [2, _a.sent()];
                     case 2: return [4, this.page.evaluate(function () { return WAPI.getAllChats(); })];
                     case 3: return [2, _a.sent()];
